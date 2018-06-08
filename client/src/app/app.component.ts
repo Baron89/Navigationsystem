@@ -35,8 +35,8 @@ export class AppComponent {
       }
 
       document.getElementById("overlay").innerHTML = svg;
-      //min++;
+      min++;
 
-    }, 1000);
+    }, 2000);
 
 }
