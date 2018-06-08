@@ -1,0 +1,13 @@
+.container {
+    border: 1px solid #DDDDDD;
+    width: 600px;
+    height: 600px;
+    position:relative;
+}
+.tag {
+    float: left;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: green;
+}
