@@ -1,0 +1,7 @@
+---
+applications:
+# Application Router
+- name: navigation_ui
+  host: findify
+  buildpack: staticfile_buildpack
+  memory: 64M
