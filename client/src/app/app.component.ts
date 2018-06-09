@@ -7,36 +7,39 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  min = 0;
+  points = [];
 
   ngOnInit() {
-
-    var points = [
-      {x: 10, y: 30},
-      {x: 40, y: 40},
-      {x: 80, y: 40},
-      {x: 100, y: 40},
-      {x: 130, y: 40},
-      {x: 150, y: 40},
-      {x: 170, y: 40},
+    this.points = [
+      {x: 0, y: 0},
+      {x: 400, y: 350},
+      {x: 600, y: 400},
     ];
+    this.printRoute();
+  }
 
-    var min=0;
+  printRoute(){
+    var svg = ''
+    var i;
+    for (i = this.min; i < this.points.length; i++) {
+        svg += '<circle cx="' + this.points[i].x + '" cy="' + this.points[i].y + '" r="5" fill="red" />'
+    };
 
-    setInterval((){
-      console.log(points);
-      var svg = ''
-      var i;
-      for (i = min; i < points.length; i++) {
-          svg += '<circle cx="' + points[i].x + '" cy="' + points[i].y + '" r="5" fill="red" />'
-      }
+    for (i = this.min; i < this.points.length - 1; i++) {
+        svg += '<line x1="'+this.points[i].x+'" y1="'+this.points[i].y+'" x2="'+this.points[i+1].x+'" y2="'+this.points[i+1].y+'" style="stroke:rgb(255,0,0);stroke-width:2" />'
+    };
 
-      for (i = min; i < points.length - 1; i++) {
-          svg += '<line x1="'+points[i].x+'" y1="'+points[i].y+'" x2="'+points[i+1].x+'" y2="'+points[i+1].y+'" style="stroke:rgb(255,0,0);stroke-width:2" />'
-      }
+    document.getElementById("overlay").innerHTML = svg;
+  }
 
-      document.getElementById("overlay").innerHTML = svg;
-      min++;
-
-    }, 2000);
+  back() {
+    this.min -= 1;
+    this.printRoute();
+  }
+  next() {
+    this.min += 1;
+    this.printRoute();
+  }
 
 }
