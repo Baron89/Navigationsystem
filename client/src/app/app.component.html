@@ -1,10 +1,20 @@
 
+
   <div>
-    <button type="button" (click)="back()">Back</button>
-    <button type="button" (click)="next()">Next</button>
+    <h2>Shoppinglist</h2>
+    <li *ngFor="let product of products; let i = index">
+      {{product}} <button type="button" (click)="delete(i)"><span class="glyphicon glyphicon-remove"></span></button>
+    </li>
   </div>
-  <div class="container">
-    <img width="955" src="assets/mapPLANmeetingraeme.jpg">
-    <svg class="tag" width="955" height="600" id="overlay">
-    </svg>
+  <div>
+    <input type="text" #product>
+    <button type="button" (click)="addProduct(product.value)" class="btn btn-primary">Add</button>
+  </div>
+  <br><br><br><br>
+  <div>
+      <button type="button" (click)="back()" class="btn btn-primary">Back</button>
+      <button type="button" (click)="next()" class="btn btn-primary">Next</button>
+  </div>
+  <div>
+    <img id="map" width="955">
   </div>
