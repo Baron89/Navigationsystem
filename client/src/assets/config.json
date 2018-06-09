@@ -1,4 +1,15 @@
 {
-  "heroesUrl": "api/heroes",
-  "textfile": "assets/textfile.txt"
+    "imageBase64": "DUMMY",
+    "items": [
+        {
+            "name": "Butter",
+           	"description": "Echt Bayrisch",
+           	"quantity": "250 g"
+        },
+        {
+            "name": "Waschmittel",
+            "description": "Wäscht Weiss",
+            "quantity": "500 ml"
+        }
+    ]
 }

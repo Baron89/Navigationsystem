@@ -1,20 +1,27 @@
 
-
   <div>
-    <h2>Shoppinglist</h2>
+    <h2>Einkaufsliste</h2>
     <li *ngFor="let product of products; let i = index">
+      <span *ngIf="activeProduct == i" class="glyphicon glyphicon-arrow-right"></span>
       {{product}} <button type="button" (click)="delete(i)"><span class="glyphicon glyphicon-remove"></span></button>
     </li>
   </div>
   <div>
     <input type="text" #product>
-    <button type="button" (click)="addProduct(product.value)" class="btn btn-primary">Add</button>
+    <button type="button" (click)="addProduct(product.value)" class="btn btn-primary">Hinzufügen</button>
   </div>
   <br><br><br><br>
   <div>
-      <button type="button" (click)="back()" class="btn btn-primary">Back</button>
-      <button type="button" (click)="next()" class="btn btn-primary">Next</button>
+      <button type="button" (click)="back()" class="btn btn-primary">Zurück</button>
+      <button type="button" (click)="next()" class="btn btn-primary">Nächster</button>
   </div>
-  <div>
-    <img id="map" width="955">
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8"><img id="map" width="855"></div>
+    <div class="col-xs-6 col-md-4">
+      <h2>Product info</h2>
+      Name: {{currentProduct.name}}<br>
+      Description: {{currentProduct.description}}<br>
+      Qunatity: {{currentProduct.quantity}}<br>
+    </div>
   </div>
