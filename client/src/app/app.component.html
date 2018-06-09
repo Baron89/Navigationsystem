@@ -16,7 +16,7 @@
       <button type="button" (click)="next()" class="btn btn-primary">Nächster</button>
   </div>
   <br><br>
-  <div class="row">
+  <div *ngIf="products.length != 0" class="row">
     <div class="col-xs-12 col-md-8"><img id="map" width="855"></div>
     <div class="col-xs-6 col-md-4">
       <h2>Product info</h2>
